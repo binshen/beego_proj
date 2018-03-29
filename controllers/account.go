@@ -46,9 +46,8 @@ func (c *AccountController) Get() {
 	//}
 	//fmt.Println("")
 
-	var accounts = [5] Account {}
+	var accounts [] Account
 
-	var count int = 0
 	for rows.Next() {
 
 		var id int
@@ -58,10 +57,8 @@ func (c *AccountController) Get() {
 			//fmt.Print("\t")
 			//fmt.Print(account_name)
 			//fmt.Print("\t\r\n")
-
-			accounts[count] = Account{id, account_name}
+			accounts = append(accounts, Account{id, account_name})
 		}
-		count++
 	}
 
 	c.Data["accounts"] = accounts
