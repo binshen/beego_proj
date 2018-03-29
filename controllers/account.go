@@ -13,7 +13,7 @@ type AccountController struct {
 }
 
 type Account struct {
-	Id int
+	Id   int
 	Name string
 }
 
@@ -25,7 +25,7 @@ func (c *AccountController) Get() {
 	pass := beego.AppConfig.String("mysql_pass")
 	database := beego.AppConfig.String("mysql_database")
 
-	db, err := sql.Open("mysql", user + ":" + pass + "@tcp(" + host + ":" + port + ")/" + database + "?charset=utf8")
+	db, err := sql.Open("mysql", user+":"+pass+"@tcp("+host+":"+port+")/"+database+"?charset=utf8")
 	if err != nil {
 		fmt.Printf("connect err")
 	}
@@ -46,7 +46,7 @@ func (c *AccountController) Get() {
 	//}
 	//fmt.Println("")
 
-	var accounts [] Account
+	var accounts []Account
 
 	for rows.Next() {
 
